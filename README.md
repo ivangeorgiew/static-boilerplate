@@ -1,1 +1,3 @@
 # static-boilerplate
+
+A boilerplate including Pug, Sass, Autoprefixer, Browser-Sync, Gulp ...
