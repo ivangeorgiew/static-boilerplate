@@ -8,6 +8,11 @@ var gulp = require('gulp'),
     pug = require('gulp-pug'),
     package = require('./package.json');
 
+gulp.task('norm', function() {
+  return gulp.src('node_modules/node-normalize-scss/_normalize.scss')
+    .pipe(gulp.dest('src/assets/0-tools'));
+});
+
 gulp.task('css', function () {
   return gulp.src('src/assets/css/main.scss')
     .pipe(sass().on('error', sass.logError))
@@ -53,7 +58,8 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('default', ['css', 'js', 'pug', 'img', 'browser-sync'], function () {
+gulp.task('default', ['norm', 'css', 'js', 'pug', 'img', 'browser-sync'], function () {
+    gulp.watch('node_modules/node-normalize-scss/_normalize.scss', ['norm']);
     gulp.watch("src/assets/css/*/*.scss", ['css']);
     gulp.watch("src/assets/js/*.js", ['js']);
     gulp.watch("src/*.pug", ['pug']);
