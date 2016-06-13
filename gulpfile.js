@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     package = require('./package.json');
 
 gulp.task('css', function () {
-  return gulp.src('src/assets/css/main.sass')
+  return gulp.src('src/assets/css/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer('last 4 version'))
     .pipe(gulp.dest('app/assets/css'))
@@ -54,9 +54,9 @@ gulp.task('bs-reload', function () {
 });
 
 gulp.task('default', ['css', 'js', 'pug', 'img', 'browser-sync'], function () {
-    gulp.watch("src/assets/css/*/*.sass", ['css']);
+    gulp.watch("src/assets/css/*/*.scss", ['css']);
     gulp.watch("src/assets/js/*.js", ['js']);
     gulp.watch("src/*.pug", ['pug']);
-    gulp.watch("src/assets/img/**/*.sass", ['img']);
+    gulp.watch("src/assets/img/**/*", ['img']);
     gulp.watch("app/*.html", ['bs-reload']);
 });
