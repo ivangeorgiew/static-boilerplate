@@ -3,19 +3,8 @@
   "version": "1.0.0",
   "description": "A boilerplate for the creation of static websites",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ivangeorgiew/static-boilerplate.git"
-  },
   "author": "Ivan Georgiev",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ivangeorgiew/static-boilerplate/issues"
-  },
-  "homepage": "https://github.com/ivangeorgiew/static-boilerplate#readme",
   "devDependencies": {
     "browser-sync": "^2.13.0",
     "gulp": "^3.9.1",
