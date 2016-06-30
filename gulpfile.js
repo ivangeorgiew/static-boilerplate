@@ -5,8 +5,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     cssnano = require('gulp-cssnano'),
-    pug = require('gulp-pug'),
-    package = require('./package.json');
+    pug = require('gulp-pug');
 
 gulp.task('norm', function() {
   return gulp.src('node_modules/node-normalize-scss/_normalize.scss')
@@ -60,7 +59,7 @@ gulp.task('bs-reload', function () {
 
 gulp.task('default', ['norm', 'css', 'js', 'pug', 'img', 'browser-sync'], function () {
     gulp.watch('node_modules/node-normalize-scss/_normalize.scss', ['norm']);
-    gulp.watch("src/assets/css/*/*.scss", ['css']);
+    gulp.watch("src/assets/css/*.scss", ['css']);
     gulp.watch("src/assets/js/*.js", ['js']);
     gulp.watch("src/*.pug", ['pug']);
     gulp.watch("src/assets/img/**/*", ['img']);
