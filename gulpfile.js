@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    cssnano = require('gulp-cssnano'),
+    cssnano = require('gulp-cssnano')
 
 gulp.task('norm', function() {
   return gulp.src('node_modules/node-normalize-scss/_normalize.scss')
