@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 
 gulp.task('norm', function() {
   return gulp.src('node_modules/node-normalize-scss/_normalize.scss')
-    .pipe(gulp.dest('src/assets/0-tools'));
+    .pipe(gulp.dest('src/assets/css'));
 });
 
 gulp.task('css', function () {
