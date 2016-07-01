@@ -44,7 +44,7 @@ gulp.task('js', function(cb){
     .pipe(browserSync.reload({stream:true, once:true}));*/
   pump([
       gulp.src('src/assets/js/app.js'),
-      uglify(),
+      uglify({mangle:false}),
       rename({ suffix: '.min' }),
       gulp.dest('app/assets/js'),
       browserSync.reload({stream:true, once:true})
