@@ -13,14 +13,6 @@ gulp.task('norm', function() {
 });
 
 gulp.task('css', function (cb) {
-  /*return gulp.src('src/assets/css/main.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer('last 4 version'))
-    .pipe(gulp.dest('app/assets/css'))
-    .pipe(cssnano())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('app/assets/css'))
-    .pipe(browserSync.reload({stream:true}));*/
   pump([
       gulp.src('src/assets/css/main.scss'),
       sass(),
@@ -36,12 +28,6 @@ gulp.task('css', function (cb) {
 });
 
 gulp.task('js', function(cb){
-  /*return gulp.src('src/assets/js/app.js')
-    .pipe(gulp.dest('app/assets/js'))
-    .pipe(uglify().on('error', uglify.message))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('app/assets/js'))
-    .pipe(browserSync.reload({stream:true, once:true}));*/
   pump([
       gulp.src('src/assets/js/app.js'),
       uglify({mangle:false}),
@@ -54,9 +40,6 @@ gulp.task('js', function(cb){
 });
 
 gulp.task('html', function(cb){
-  /*return gulp.src('src/index.html')
-    .pipe(gulp.dest('app/'))
-    .pipe(browserSync.reload({stream:true}));*/
   pump([
       gulp.src('src/index.html'),
       gulp.dest('app/'),
@@ -67,9 +50,6 @@ gulp.task('html', function(cb){
 });
 
 gulp.task('img', function(cb){
-  //return gulp.src('src/assets/img/**/*')
-  //  .pipe(gulp.dest('app/assets/img/'))
-  //  .pipe(browserSync.reload({stream:true}));
   pump([
       gulp.src('src/assets/img/**/*'),
       gulp.dest('app/assets/img/'),
