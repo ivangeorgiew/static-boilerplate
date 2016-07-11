@@ -7,10 +7,10 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     pump = require('pump');
 
-gulp.task('norm', function() {
-  return gulp.src('node_modules/node-normalize-scss/_normalize.scss')
-    .pipe(gulp.dest('src/assets/css'));
-});
+  //gulp.task('norm', function() {
+  //  return gulp.src('node_modules/node-normalize-scss/_normalize.scss')
+  //    .pipe(gulp.dest('src/assets/css'));
+  //});
 
 gulp.task('css', function (cb) {
   pump([
@@ -87,8 +87,8 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('default', ['norm', 'css', 'jsConcat', 'html', 'img', 'browser-sync'], function () {
-    gulp.watch('node_modules/node-normalize-scss/_normalize.scss', ['norm']);
+gulp.task('default', ['css', 'jsConcat', 'html', 'img', 'browser-sync'], function () {
+    //gulp.watch('node_modules/node-normalize-scss/_normalize.scss', ['norm']);
     gulp.watch("src/assets/css/*.scss", ['css']);
     //gulp.watch("node_modules/jquery/dist/jquery.min.js", ['jQuery']);
     //gulp.watch("src/assets/js/app.js", ['js']);
