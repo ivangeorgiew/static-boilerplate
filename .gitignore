@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io/api/osx,sass,node
 app
 src/assets/css/_normalize.scss
+src/assets/js/jquery.min.js
 
 ### OSX ###
 *.DS_Store
