@@ -1,5 +1,6 @@
 # Created by https://www.gitignore.io/api/osx,sass,node
 app
+src/assets/css/_normalize.scss
 
 ### OSX ###
 *.DS_Store

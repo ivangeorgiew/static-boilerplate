@@ -2,9 +2,9 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     autoprefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     cssnano = require('gulp-cssnano'),
+    concat = require('gulp-concat'),
     pump = require('pump');
 
 gulp.task('norm', function() {
@@ -27,18 +27,29 @@ gulp.task('css', function (cb) {
   );
 });
 
-gulp.task('jQuery', function(){
-  return gulp.src('node_modules/jquery/dist/jquery.min.js')
-    .pipe(gulp.dest('app/assets/js'));
-});
+//gulp.task('jQuery', function(){
+//  return gulp.src('node_modules/jquery/dist/jquery.min.js')
+//    .pipe(gulp.dest('app/assets/js'));
+//});
 
-gulp.task('js', function(cb){
+//gulp.task('js', function(cb){
+//  pump([
+//     gulp.src('src/assets/js/app.js'),
+//     uglify({mangle:false}),
+//     rename('src/assets/js/ugly.js'),
+//     gulp.dest('src/assets/js'),
+//     browserSync.reload({stream:true, once:true})
+//   ],
+//   cb
+//  );
+//});
+
+gulp.task('jsConcat', function(cb){
   pump([
-      gulp.src('src/assets/js/app.js'),
-      rename('app.min.js'),
-      uglify({mangle:false}),
-      gulp.dest('app/assets/js'),
-      browserSync.reload({stream:true, once:true})
+    gulp.src(['node_modules/jquery/dist/jquery.min.js', 'src/assets/js/app.js']),
+    concat('app.min.js'),
+    gulp.dest('app/assets/js'),
+    browserSync.reload({stream:true})
     ],
     cb
   );
@@ -76,11 +87,12 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('default', ['norm', 'css', 'jQuery', 'js', 'html', 'img', 'browser-sync'], function () {
+gulp.task('default', ['norm', 'css', 'jsConcat', 'html', 'img', 'browser-sync'], function () {
     gulp.watch('node_modules/node-normalize-scss/_normalize.scss', ['norm']);
     gulp.watch("src/assets/css/*.scss", ['css']);
-    gulp.watch("node_modules/jquery/dist/jquery.min.js", ['jQuery']);
-    gulp.watch("src/assets/js/*.js", ['js']);
+    //gulp.watch("node_modules/jquery/dist/jquery.min.js", ['jQuery']);
+    //gulp.watch("src/assets/js/app.js", ['js']);
+    gulp.watch("src/assets/js/app.js", ['jsConcat']);
     gulp.watch("src/*.html", ['html']);
     gulp.watch("src/assets/img/**/*", ['img']);
     gulp.watch("app/*.html", ['bs-reload']);
