@@ -1,5 +1,18 @@
 @import 'node_modules/node-normalize-scss/_normalize.scss';
 
-body{
-  background-color: yellow;
+*{
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+html, body{
+  background-color: $navy;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+  
+select, input, button{
+  border-width: 0px;
 }
