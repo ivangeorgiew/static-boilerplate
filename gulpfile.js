@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     concat = require('gulp-concat'),
     pump = require('pump');
+    babel = require('gulp-babel');
 
   //gulp.task('norm', function() {
   //  return gulp.src('node_modules/node-normalize-scss/_normalize.scss')
@@ -48,6 +49,7 @@ gulp.task('jsConcat', function(cb){
   pump([
     gulp.src(['node_modules/jquery/dist/jquery.min.js', 'src/assets/js/app.js']),
     concat('app.min.js'),
+    babel(),
     gulp.dest('app/assets/js'),
     browserSync.reload({stream:true})
     ],
