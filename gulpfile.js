@@ -25,7 +25,7 @@ gulp.task('css', function (cb) {
 
 gulp.task('jsConcat', function(cb){
   pump([
-    gulp.src(['node_modules/jquery/dist/jquery.min.js', 'src/assets/js/app.js']),
+    gulp.src(/*['node_modules/jquery/dist/jquery.min.js',*/'src/assets/js/app.js'/*]*/),
     concat('app.min.js'),
     gulp.dest('app/assets/js'),
     browserSync.reload({stream:true})
@@ -57,7 +57,7 @@ gulp.task('img', function(cb){
 gulp.task('browser-sync', function() {
   browserSync.init(null, {
     server: {
-      baseDir: "app"
+      baseDir: 'app'
     }
   });
 });
@@ -67,9 +67,8 @@ gulp.task('bs-reload', function () {
 });
 
 gulp.task('default', ['css', 'jsConcat', 'html', 'img', 'browser-sync'], function () {
-    gulp.watch("src/assets/css/*.scss", ['css']);
-    gulp.watch("src/assets/js/app.js", ['jsConcat']);
-    gulp.watch("src/*.html", ['html']);
-    gulp.watch("src/assets/img/**/*", ['img']);
-    gulp.watch("app/*.html", ['bs-reload']);
+    gulp.watch('src/assets/css/*.scss', ['css']);
+    gulp.watch('src/assets/js/app.js', ['jsConcat']);
+    gulp.watch('src/*.html', ['html']);
+    gulp.watch('src/assets/img/**/*', ['img']);
 });
